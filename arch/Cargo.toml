@@ -1,0 +1,11 @@
+[package]
+name = "arch"
+version = "0.1.0"
+
+[lib]
+path = "lib.rs"
+
+[features]
+
+[dependencies]
+cfg-if = "1.0"
