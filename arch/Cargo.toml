@@ -3,7 +3,8 @@ name = "arch"
 version = "0.1.0"
 
 [lib]
-path = "lib.rs"
+path = "main.rs"
+crate-type = ["bin"]
 
 [features]
 
