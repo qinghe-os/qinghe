@@ -53,7 +53,7 @@ include scripts/make/qemu.mk
 include scripts/make/build.mk
 include scripts/make/test.mk
 
-build: $(OUT_DIR) $(OUT_BIN)
+build: $(OUT_BIN)
 
 disasm:
 	$(OBJDUMP) $(OUT_ELF) | less
@@ -102,6 +102,6 @@ endif
 
 clean:
 	rm -rf $(OUT_DIR)/*.bin $(OUT_DIR)/*.elf
-	cargo clean -p arch
+	cargo clean --manifest-path arch/Cargo.toml
 
 .PHONY: all build disasm run justrun debug clippy fmt test test_no_fail_fast clean doc disk_image

@@ -1,13 +1,11 @@
 # Main building script
 
-$(OUT_DIR):
-	mkdir -p $@
-
 rust_package := $(shell cat arch/Cargo.toml | sed -n 's/name = "\([a-z0-9A-Z_\-]*\)"/\1/p')
 rust_target_dir := $(CURDIR)/target/$(TARGET)/$(MODE)
 rust_elf := $(rust_target_dir)/$(rust_package)
 
-_cargo_build:
+_cargo_build: 
+	mkdir -p $(OUT_DIR)
 	$(call cargo_build,--manifest-path arch/Cargo.toml)
 	@cp $(rust_elf) $(OUT_ELF)
 
